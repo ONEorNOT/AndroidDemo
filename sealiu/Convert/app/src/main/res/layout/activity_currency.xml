@@ -36,12 +36,11 @@
                 android:textSize="36sp"/>
         </LinearLayout>
 
-
-        <NumberPicker
+        <com.sealiu.convert.WheelView
+            android:id="@+id/main_wv_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/numberPickerA" />
+            />
 
     </LinearLayout>
 
@@ -70,10 +69,9 @@
                 android:textSize="36sp"/>
         </LinearLayout>
 
-        <NumberPicker
+        <com.sealiu.convert.WheelView
+            android:id="@+id/main_wv_other"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/numberPickerB" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

@@ -17,11 +17,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView linearLayout_currency = (TextView) findViewById(R.id.currency_convert);
-        linearLayout_currency.setOnClickListener(new View.OnClickListener() {
+        TextView textViewCurrency = (TextView) findViewById(R.id.currency_convert);
+        TextView textViewMemory = (TextView) findViewById(R.id.memory_convert);
+
+        textViewCurrency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Currency.class);
+                startActivity(intent);
+            }
+        });
+
+        textViewMemory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Memory.class);
                 startActivity(intent);
             }
         });

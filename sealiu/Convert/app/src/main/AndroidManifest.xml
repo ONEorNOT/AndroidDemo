@@ -19,10 +19,13 @@
             android:name=".Currency"
             android:label="@string/currency_convert"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".Memory"
             android:label="@string/memory_space_convert"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NumberSystem"
+            android:label="@string/number_systems_convert"
             android:parentActivityName=".MainActivity" />
     </application>
 

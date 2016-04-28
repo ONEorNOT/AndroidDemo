@@ -27,6 +27,10 @@ public class Currency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convert_panel);
 
+        /**
+         * add back button in the left side of actionBar.
+         * this activity's parent is defined in AndroidManifest.xml.
+         */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final WheelView wvLeft = (WheelView) findViewById(R.id.wv_left);

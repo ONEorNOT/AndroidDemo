@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textViewCurrency = (TextView) findViewById(R.id.currency_convert);
         TextView textViewMemory = (TextView) findViewById(R.id.memory_convert);
+        TextView textViewNumberSystem = (TextView) findViewById(R.id.number_systems_convert);
 
         textViewCurrency.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Memory.class);
+                startActivity(intent);
+            }
+        });
+
+        textViewNumberSystem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NumberSystem.class);
                 startActivity(intent);
             }
         });

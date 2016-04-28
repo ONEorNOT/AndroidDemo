@@ -1,31 +1,22 @@
 package com.sealiu.convert;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
-public class Memory extends AppCompatActivity {
-
-    //yotta，[尧]它， Y. 10^21，
-    //zetta，[泽]它， Z. 10^18，
-    //exa，[艾]可萨， E. 10^15，
-    //peta，[拍]它， P. 10^12，
-    //tera，[太]拉， T. 10^9，
-    //giga，[吉]咖， G. 10^6，
-    //mega，[兆]，M. 10^3
+public class NumberSystem extends AppCompatActivity {
     private static final String[] TYPE = new String[]{
-            "bit",
-            "B",
-            "KB",
-            "MB",
-            "GB",
-            "TB",
-            "PB"
+            "Bin 二进制",
+            "Qua 四进制",
+            "Oct 八进制",
+            "Dec 十进制",
+            "Hex 十六进制"
     };
 
     Common common = new Common();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +33,12 @@ public class Memory extends AppCompatActivity {
 
         final TextView currentTypeTextView = (TextView) findViewById(R.id.current_type);
         final TextView convertTypTextView = (TextView) findViewById(R.id.convert_type);
+
+        EditText editTextLeft = (EditText) findViewById(R.id.current_value_edit_text);
+        EditText editTextRight = (EditText) findViewById(R.id.convert_value_edit_text);
+
+        editTextLeft.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+        editTextRight.setInputType(EditorInfo.TYPE_CLASS_TEXT);
 
         Button changeBtn = (Button) findViewById(R.id.change_btn);
 

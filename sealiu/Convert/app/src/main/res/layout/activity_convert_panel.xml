@@ -34,6 +34,7 @@
                     android:textStyle="bold"
                     android:textSize="20sp"/>
                 <EditText
+                    android:id="@+id/current_value_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -75,6 +76,7 @@
                     android:textStyle="bold"
                     android:textSize="20sp"/>
                 <EditText
+                    android:id="@+id/convert_value_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"

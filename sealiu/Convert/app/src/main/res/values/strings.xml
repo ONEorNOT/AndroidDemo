@@ -4,7 +4,7 @@
     <string name="action_about">关于</string>
 
     <string name="currency_convert">货币转换</string>
-    <string name="memory_space_convert">存储空间转换</string>
+    <string name="memory_space_convert">存储单位转换</string>
     <string name="number_systems_convert">进制转换</string>
 
     <string name="change">\u21C6</string>

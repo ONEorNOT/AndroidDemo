@@ -39,6 +39,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -55,7 +56,9 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginTop="48dp"
-            android:text="@string/change"/>
+            android:text="@string/change"
+            android:background="@drawable/round_btn"
+            android:textColor="@android:color/white"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -81,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textSize="24sp" />
             </LinearLayout>
 

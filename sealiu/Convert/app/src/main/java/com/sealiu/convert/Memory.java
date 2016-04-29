@@ -2,8 +2,14 @@ package com.sealiu.convert;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 public class Memory extends AppCompatActivity {
 
@@ -43,6 +49,9 @@ public class Memory extends AppCompatActivity {
         final TextView currentTypeTextView = (TextView) findViewById(R.id.current_type);
         final TextView convertTypTextView = (TextView) findViewById(R.id.convert_type);
 
+        final EditText editTextLeft = (EditText) findViewById(R.id.current_value_edit_text);
+        final EditText editTextRight = (EditText) findViewById(R.id.convert_value_edit_text);
+
         Button changeBtn = (Button) findViewById(R.id.change_btn);
 
         /**
@@ -57,5 +66,63 @@ public class Memory extends AppCompatActivity {
          * And at the same time, swap the content of wvLeft and wvRight.
          */
         common.changePosition(changeBtn, currentTypeTextView, convertTypTextView, wvLeft, wvRight, TYPE);
+
+        //-----------------------------------------------------
+        //-----------------------------------------------------
+
+        editTextLeft.addTextChangedListener(new TextWatcher() {
+            int leftTypeIndex;
+            int rightTypeIndex;
+
+            double leftValue;
+            double rightValue;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                leftTypeIndex = wvLeft.getSeletedIndex();
+                rightTypeIndex = wvRight.getSeletedIndex();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int distance = Math.abs(leftTypeIndex - rightTypeIndex) - 1;
+
+                Log.i("Memory", s.toString());
+                if (!String.valueOf(s).equals("")) {
+                    leftValue = Double.parseDouble(s.toString());
+
+                    if (leftTypeIndex < rightTypeIndex) {
+                        // small(bit) --> big
+                        if (leftTypeIndex == 0)
+                            rightValue = leftValue / (8 * Math.pow(1024, distance));
+                        else
+                            rightValue = leftValue / Math.pow(1024, distance);
+
+                        editTextRight.setText(String.format("%.2f", rightValue));
+                    } else if (leftTypeIndex > rightTypeIndex) {
+                        if (rightTypeIndex == 0)
+                            rightValue = leftValue * 8 * Math.pow(1024, distance);
+                        else
+                            rightValue = leftValue * Math.pow(1024, distance);
+
+                        editTextRight.setText(String.format("%.2f", rightValue));
+                    } else {
+                        editTextRight.setText(String.valueOf(leftValue));
+                    }
+
+
+                    Log.i("Memory", String.valueOf(rightValue));
+                } else {
+                    editTextRight.setText("");
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 }

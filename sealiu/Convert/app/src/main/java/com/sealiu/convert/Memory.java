@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.Objects;
+import java.text.DecimalFormat;
 
 public class Memory extends AppCompatActivity {
 
@@ -67,9 +66,6 @@ public class Memory extends AppCompatActivity {
          */
         common.changePosition(changeBtn, currentTypeTextView, convertTypTextView, wvLeft, wvRight, TYPE);
 
-        //-----------------------------------------------------
-        //-----------------------------------------------------
-
         editTextLeft.addTextChangedListener(new TextWatcher() {
             int leftTypeIndex;
             int rightTypeIndex;
@@ -85,44 +81,48 @@ public class Memory extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int distance = Math.abs(leftTypeIndex - rightTypeIndex) - 1;
+                int distance = Math.abs(leftTypeIndex - rightTypeIndex);
 
-                Log.i("Memory", s.toString());
                 if (!String.valueOf(s).equals("")) {
                     leftValue = Double.parseDouble(s.toString());
 
-                    if (leftTypeIndex < rightTypeIndex) {
-                        // small(bit) --> big
-                        if (leftTypeIndex == 0)
-                            rightValue = leftValue / (8 * Math.pow(1024, distance));
-                        else
-                            rightValue = leftValue / Math.pow(1024, distance);
-
-                        editTextRight.setText(String.format("%.2f", rightValue));
-                    } else if (leftTypeIndex > rightTypeIndex) {
-                        if (rightTypeIndex == 0)
-                            rightValue = leftValue * 8 * Math.pow(1024, distance);
-                        else
-                            rightValue = leftValue * Math.pow(1024, distance);
-
-                        editTextRight.setText(String.format("%.2f", rightValue));
-                    } else {
-                        editTextRight.setText(String.valueOf(leftValue));
+                    if (leftTypeIndex == rightTypeIndex) {
+                        rightValue = leftValue;
+                        editTextRight.setText(new DecimalFormat("0").format(rightValue));
                     }
 
+                    if (leftTypeIndex == 0 && rightTypeIndex != 0) {
+                        rightValue = leftValue / (8 * Math.pow(1024, distance - 1));
+                        editTextRight.setText(new DecimalFormat("0.00").format(rightValue));
+                    }
 
-                    Log.i("Memory", String.valueOf(rightValue));
+                    if (leftTypeIndex != 0 && rightTypeIndex != 0) {
+                        if (leftTypeIndex > rightTypeIndex) {
+                            rightValue = leftValue * Math.pow(1024, distance);
+                            editTextRight.setText(new DecimalFormat("0").format(rightValue));
+                        } else if (leftTypeIndex < rightTypeIndex) {
+                            rightValue = leftValue / Math.pow(1024, distance);
+                            editTextRight.setText(new DecimalFormat("0.00").format(rightValue));
+                        } else {
+                            editTextRight.setText(new DecimalFormat("0").format(leftValue));
+                        }
+                    }
+
+                    if (leftTypeIndex != 0 && rightTypeIndex == 0) {
+                        rightValue = leftValue * 8 * Math.pow(1024, distance - 1);
+                        editTextRight.setText(new DecimalFormat("0").format(rightValue));
+                    }
+
                 } else {
                     editTextRight.setText("");
                 }
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
             }
-        });
+        }); //editTextLeft.addTextChangedListener
 
-    }
+    } //onCreate
 }

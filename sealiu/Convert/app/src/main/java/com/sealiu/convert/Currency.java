@@ -3,6 +3,7 @@ package com.sealiu.convert;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Currency extends AppCompatActivity {
@@ -38,6 +39,9 @@ public class Currency extends AppCompatActivity {
 
         final TextView currentTypeTextView = (TextView) findViewById(R.id.current_type);
         final TextView convertTypTextView = (TextView) findViewById(R.id.convert_type);
+
+        final EditText editTextLeft = (EditText) findViewById(R.id.current_value_edit_text);
+        final EditText editTextRight = (EditText) findViewById(R.id.convert_value_edit_text);
 
         Button changeBtn = (Button) findViewById(R.id.change_btn);
 

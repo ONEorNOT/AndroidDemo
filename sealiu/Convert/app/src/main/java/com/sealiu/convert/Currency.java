@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -71,7 +72,11 @@ public class Currency extends AppCompatActivity {
 
         Button changeBtn = (Button) findViewById(R.id.change_btn);
 
+        final View cutLine = findViewById(R.id.cut_line);
         final TextView currencyDetailTextView = (TextView) findViewById(R.id.detail);
+
+        cutLine.setVisibility(View.INVISIBLE);
+        currencyDetailTextView.setVisibility(View.INVISIBLE);
 
         /**
          * initiate WheelView and set OnWheelViewListener function. change the content of the
@@ -132,6 +137,9 @@ public class Currency extends AppCompatActivity {
 
                                         editTextRight.setText(rightValue);
                                         currencyDetailTextView.setText(detail);
+
+                                        cutLine.setVisibility(View.VISIBLE);
+                                        currencyDetailTextView.setVisibility(View.VISIBLE);
 
                                     } catch (Exception e) {
                                         e.printStackTrace();

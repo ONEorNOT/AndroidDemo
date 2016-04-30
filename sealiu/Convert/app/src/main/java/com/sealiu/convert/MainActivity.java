@@ -54,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
             case R.id.action_about:
+                Intent intent = new Intent(MainActivity.this, About.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

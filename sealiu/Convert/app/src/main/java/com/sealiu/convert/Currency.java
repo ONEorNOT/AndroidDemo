@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -122,7 +121,6 @@ public class Currency extends AppCompatActivity {
                             new ApiCallBack() {
                                 @Override
                                 public void onSuccess(int status, String responseString) {
-                                    Log.i("sdkdemo", "onSuccess" + responseString);
 
                                     try {
                                         JSONObject retData = new JSONObject(responseString).getJSONObject("retData");
@@ -149,13 +147,11 @@ public class Currency extends AppCompatActivity {
 
                                 @Override
                                 public void onComplete() {
-                                    Log.i("sdkdemo", "onComplete");
+
                                 }
 
                                 @Override
                                 public void onError(int status, String responseString, Exception e) {
-                                    Log.i("sdkdemo", "onError, status: " + status);
-                                    Log.i("sdkdemo", "errMsg: " + (e == null ? "" : e.getMessage()));
 
                                 }
 

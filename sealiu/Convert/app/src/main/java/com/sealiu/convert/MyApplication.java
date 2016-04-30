@@ -1,11 +1,8 @@
 package com.sealiu.convert;
 
 import android.app.Application;
-import android.util.Log;
 
-import com.baidu.apistore.sdk.ApiCallBack;
 import com.baidu.apistore.sdk.ApiStoreSDK;
-import com.baidu.apistore.sdk.network.Parameters;
 
 public class MyApplication extends Application {
     @Override

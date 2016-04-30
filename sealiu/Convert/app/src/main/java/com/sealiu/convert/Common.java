@@ -2,6 +2,7 @@ package com.sealiu.convert;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -27,7 +28,7 @@ public class Common {
         });
     }
 
-    public void changePosition(Button btn, final TextView tvLeft, final TextView tvRight, final WheelView wvLeft, final WheelView wvRight, final String[] array) {
+    public void changePosition(Button btn, final EditText etLeft, final EditText etRight, final TextView tvLeft, final TextView tvRight, final WheelView wvLeft, final WheelView wvRight, final String[] array) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,11 +36,18 @@ public class Common {
                 String leftType = (String) tvLeft.getText();
                 String rightType = (String) tvRight.getText();
 
+                String leftValue = String.valueOf(etLeft.getText());
+                String rightValue = String.valueOf(etRight.getText());
+
+
                 tvLeft.setText(rightType);
                 tvRight.setText(leftType);
 
                 wvLeft.setSeletion(findPosition(array, rightType));
                 wvRight.setSeletion(findPosition(array, leftType));
+
+                etLeft.setText(rightValue);
+                etRight.setText(leftValue);
 
             }
         });

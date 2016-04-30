@@ -53,6 +53,15 @@ public class Memory extends AppCompatActivity {
 
         Button changeBtn = (Button) findViewById(R.id.change_btn);
 
+        TextView detailTextView = (TextView) findViewById(R.id.detail);
+        String detail = "1 PB = 1024 TB";
+        detail += "\n1 TB = 1024 GB";
+        detail += "\n1 GB = 1024 MB";
+        detail += "\n1 GB = 1024 KB";
+        detail += "\n1 KB = 1024 B";
+        detail += "\n1 B = 8 bit";
+        detailTextView.setText(detail);
+
         /**
          * initiate WheelView and set OnWheelViewListener function. change the content of the
          * TextView and WheelView when the WheelView scrolled;
@@ -64,7 +73,7 @@ public class Memory extends AppCompatActivity {
          * when click the change button, swap the value of currentTypeTextView and convertTypTextView.
          * And at the same time, swap the content of wvLeft and wvRight.
          */
-        common.changePosition(changeBtn, currentTypeTextView, convertTypTextView, wvLeft, wvRight, TYPE);
+        common.changePosition(changeBtn, editTextLeft, editTextRight, currentTypeTextView, convertTypTextView, wvLeft, wvRight, TYPE);
 
         editTextLeft.addTextChangedListener(new TextWatcher() {
             int leftTypeIndex;

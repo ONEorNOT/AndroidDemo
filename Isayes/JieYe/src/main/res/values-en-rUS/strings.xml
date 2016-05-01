@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChongQingHot</string>
+    <string name="cq_img">contentDescription</string>
+    <string name="click_again_to_quit">Click Again to Exit.</string>
+    <string name="bigTitle">Why ChongQing is Hot</string>
+    <string name="contentTitle">Contents</string>
+    <string name="title_1">1. Good</string>
+    <string name="title_2">2. Very Good</string>
+    <string name="title_3">3. So Good</string>
+    <string name="title_4">4. Too Good</string>
+    <string name="title_5">5. Amazing</string>
+    <string name="sure">Sure</string>
+</resources>

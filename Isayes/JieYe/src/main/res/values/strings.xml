@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">重庆火</string>
+    <string name="cq_img">重庆火的原因的图片说明</string>
+    <string name="click_again_to_quit">再按一次退出应用</string>
+    <string name="bigTitle">论中国重庆为什么红火</string>
+    <string name="contentTitle">目录</string>
+    <string name="title_1">1. 战略联结点好</string>
+    <string name="title_2">2. 内陆开放高地</string>
+    <string name="title_3">3. 产业链的整合</string>
+    <string name="title_4">4. 价值链的重构</string>
+    <string name="title_5">5. 供应链的升级</string>
+    <string name="sure">确 定</string>
+</resources>
